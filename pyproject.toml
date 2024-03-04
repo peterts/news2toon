@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "news2toon"
+version = "0.1.0"
+description = "Converts a news article into a cartoon strip"
+authors = ["Peter Sandberg <peter.sandberg@bouvet.no>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+python-dotenv = "^1.0.0"
+newspaper3k = "^0.2.8"
+openai = "^1.9.0"
+pydantic = "^2.5.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

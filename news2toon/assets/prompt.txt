@@ -1,0 +1,99 @@
+Du skal lage en tegneseriestripe basert på nyhetsartikkelen du blir gitt. Tegneseriestripen skal inneholde fire ruter. For hver rute skal det være en bildebeskrivelse som forklarer i detalj hva bildet i ruten inneholder, og det skal være en tilhørende tekst med snakkebobler for personene som opptrer i ruten. Tegneseriestripen skal oppsummere de viktigste hendelsene i nyhetsartikkelen.
+Det er viktig at stilen er konsistent på tvers av bildene, så husk å inkludere nok detaljer i beskrivelsene til å sørge for dette. Bildene skal ikke inneholde snakkebobler fordi snakkebobletekstene skal plasseres under bildene i ettertid. Bildene skal være i tegneseriestil, så husk å inkludere dette i beskrivelsen.
+
+Det er veldig viktig at bildebeskrivelsene er utfyllende, og i detalj beskriver personer, objekter og omgivelsene. Beskrivelsene må være detaljerte nok til at det kan genereres opp bilder basert på dem. Ikke bare bruk navnet til personen i bildegenereringen, bruk også en beskrivelse av hvordan personen skal se ut dersom dette er tilgjengelig. Pass på at denne beskrivelsen er konsistent på tvers av bildene.
+
+Ut fra nyhetsartikkelen, identifiser personer som skal opptre i tegneseriestripen. Hvis nyhetsartikkelen inneholder uttalelser eller sitater, så må du gjerne bruke disse i snakkeboblene. Pass på å bruke disse uttalelsene eller sitatene på den personen det gjelder. Du kan gjerne inkludere en fortellerstemme i tillegg til personene du har identifisert, dersom det er informasjon som burde være med, men ikke tilordnes en person. 
+
+Dersom ingen personer opptrer i nyhetsartikkelen, men den mer beskriver en hendelser, så kan alle snakkeboblene være fra fortellerstemmen.
+
+Jeg ønsker en JSON ut. JSON-objektet skal inneholde en tittel, og liste med fire elementer - ett per rute i tegneseriestripen. Hvert element skal inneholde en bildebeskrivelse og en liste med snakkebobler. Hver snakkeboble skal inneholde navnet eller kallenavnet på en person, og teksten sagt av denne personen.
+
+Eksempel:
+
+===
+
+Nyhetsartikkel:
+Politiker Jonas Gahr Støre Snubler på Gardermoen, Reddet av Sandra Borch
+
+Oslo, NORGE – I en uventet hendelse på Oslo Gardermoen Lufthavn, opplevde Jonas Gahr Støre, en profilert norsk politiker, en pinlig og potensielt farlig situasjon da han snublet og falt ned en rulletrapp. Hendelsen, som raskt ble håndtert takket være innsatsen fra Sandra Borch, en annen kjent politisk figur, vekker oppmerksomhet for både dramatikken og solidariteten den fremviste.
+
+Ifølge øyenvitnerapporter var Støre på vei til sitt fly da han mistet fotfestet og falt ned rulletrappen. Hans fall forårsaket øyeblikkelig kaos, med hans personlige eiendeler spredt nedover rulletrappen. Overrasket og i en noe panisk tilstand forsøkte han å stabilisere seg mens andre passasjerer, inkludert Sandra Borch, vitnet hendelsen.
+
+Borch, som var til stede ved ulykken, handlet raskt og ringte etter en ambulanse. Hun formidlet situasjonens alvor til nødtjenestene: "Hei! Jeg trenger en ambulanse til Gardermoen kjapt. En viktig politiker har falt i rulletrappen."
+
+Ambulansen ankom snart etter, og Støre ble behandlet av ambulansepersonalet. Han takket Borch for hennes raske respons og viste tydelig sin takknemlighet: "Åh, tusen takk for at du ringte ambulansen, Sandra."
+
+Etter å ha blitt undersøkt og behandlet for mindre skader, ble Støre friskmeldt og kunne forlate sykehuset. Som en takk til Borch for hennes hjelp og omsorg under hendelsen, overrakte han henne en flaske cola, et tegn på sin takknemlighet.
+
+Denne hendelsen, som involverte to fremstående politikere, har blitt et samtaleemne i Norge, og viser viktigheten av rask tenkning og medmenneskelighet i nødsituasjoner. Støre og Borchs samhandling under denne uvanlige hendelsen har blitt et eksempel på samhold og gjensidig støtte, selv i de mest uventede omstendighetene.
+
+===
+
+Output:
+{
+    "Tittel": "Statsminister tryner i rulletrappen",
+    "Bilder": [
+        {
+            "Bildebeskrivelse": "En tegneserietegning av en gråhåret person som snubler ned en rulletrapp på en flyplass. Personen ser ut til å være litt i panikk, med armer som veiver og et overrasket uttrykk. Bagasjen deres raser ned sammen med dem, og bidrar til kaoset. Rulletrappen er tydeligvis på en flyplass, med skilter til gater og en taxfree-butikk i bakgrunnen. Andre passasjerer står til side, og ser på scenen som utfolder seg med en blanding av overraskelse og bekymring. Stilen er fargerik og overdrevet, typisk for humoristiske tegneserier.",
+            "Snakkebobler": [
+                {
+                    "Person": "Jonas Gahr Støre",
+                    "Tekst": "Hjeeelp, jeg faller."
+                },
+                {
+                    "Person": "Sandra Borch",
+                    "Tekst": "Nei og nei, hva skjer?"
+                }
+            ]
+        },
+        {
+            "Bildebeskrivelse": "En tegneserietegning av en kvinne som ringer etter en ambulanse. Kvinnen er avbildet i en frenetisk tilstand, med et bekymret uttrykk mens hun snakker i telefonen sin. Hun gestikulerer med den andre hånden som om hun forklarer situasjonens hast. Bakgrunnen viser en bygate med noen tilskuere som ser på med bekymring. Kvinnes antrekk er avslappet og moderne, og hennes uttrykk og gestikulering bidrar til det komiske aspektet av scenen. Stilen er fargerik og overdrevet, typisk for humoristiske tegneserier.",
+            "Snakkebobler": [
+                {
+                    "Person": "Sandra Borch",
+                    "Tekst": "Hei! Jeg trenger en ambulanse til Gardemoen kjapt. En viktig politiker har falt i rulletrappen."
+                }
+            ]
+        },
+        {
+            "Bildebeskrivelse": "En tegneserietegning i samme stil, som viser den gråhårede mannen som blir plukket opp av en ambulanse. Scenen er humoristisk, med mannen som fortsatt ser overrasket og litt rufsete ut. Ambulansepersonalet hjelper ham opp på en båre, med en av dem som prøver å roe ham ned. Bakgrunnen viser en travel gate nær flyplassen, med tilskuere som viser en blanding av bekymring og fornøyelse. Ambulansen er sterkt farget og har ordet 'AMBULANSE' skrevet på den. Den generelle tonen er lystig og overdrevet, typisk for humoristiske tegneserier.",
+            "Snakkebobler": [
+                {
+                    "Person": "Jonas Gahr Støre",
+                    "Tekst": "Åh, tusen takk for at du ringte ambulansen Sandra"
+                },
+                {
+                    "Person": "Sandra Borch",
+                    "Tekst": "Bare hyggelig, nå skylder du meg en kald cola"
+                }
+            ]
+        },
+        {
+            "Bildebeskrivelse": "En tegneserietegning av den gråhårede mannen som forlater sykehuset, med et plaster på hodet, og gir kvinnen en flaske cola. Mannen ser ut til å være i godt humør til tross for skaden sin, og smiler mens han gir flasken til kvinnen. Kvinnen ser takknemlig og litt underholdt ut. Sykehusinngangen er i bakgrunnen, med et skilt som leser 'Sykehus'. Stilen er lystig og overdrevet, typisk for humoristiske tegneserier, med lyse farger og uttrykksfulle karakterer.",
+            "Snakkebobler": [
+                {
+                    "Person": "Fortellerstemme",
+                    "Tekst": "Det gikk bra med Jonas. Sykebilen kom og plukket ham opp, og Sandra fikk colaen som Jonas skyldte henne."
+                }
+            ]
+        }
+    ]
+}
+
+===
+
+Oppgaven din er altså å motta en nyhetsartikkel, og basert på dette lage en tegneseriestripe med fire ruter. Tegneseriestripen skal representeres som en JSON med fire elementer, slik som i eksempelet over.
+
+Outputen skal ikke inneholde noe annet enn JSON-objektet. Ikke inkluder noe som helst annen informasjon i outputen.
+
+===
+
+Nyhetsartikkel:
+
+{news_article}
+
+===
+
+Output:
+
