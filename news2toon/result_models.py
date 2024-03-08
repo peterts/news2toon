@@ -1,4 +1,4 @@
-from pydantic import BaseModel, Field, HttpUrl, conlist
+from pydantic import BaseModel, Field, conlist
 
 
 class SpeechBubble(BaseModel):
@@ -26,7 +26,7 @@ class SpeechBubble(BaseModel):
 class CartoonStripCell(BaseModel):
     speech_bubbles: list[SpeechBubble] = Field(..., alias="Snakkebobler")
     image_description: str = Field(..., alias="Bildebeskrivelse")
-    image_url: HttpUrl | None = Field(None, alias="Bildelenke")
+    image_url: str | None = Field(None, alias="Bildelenke")
 
 
 class CartoonStrip(BaseModel):
